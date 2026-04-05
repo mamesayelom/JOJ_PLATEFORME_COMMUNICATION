@@ -22,7 +22,7 @@
 
     <hr>
 
-    <!-- Commentaires 
+    
     <h5 class="fw-bold">Commentaires ({{ commentaires.count }})</h5>
 
     <div class="mt-3">
@@ -31,36 +31,47 @@
             
             <div class="d-flex justify-content-between">
                 <strong class="text-primary">
-                    {{ commentaire.auteur.username }}
+                    {{ commentaire.user.username }}
                 </strong>
                 <small class="text-muted">
-                    Posté le {{ commentaire.date_creation }}
+                    Posté le {{ commentaire.created_at|date:"d F Y" }}
                 </small>
             </div>
 
             <p class="mb-0 mt-2">{{ commentaire.contenu }}</p>
 
+            
+                <div class="mt-2 d-flex gap-2">
+                    <a href="{% url 'commentaire_edit' commentaire.id %}" class="btn btn-sm btn-warning">
+                        Modifier
+                    </a>
+                     <a href="" class="btn btn-sm btn-danger">
+                        Supprimer
+                    </a>
+                </div>
+           
+
         </div>
         {% empty %}
         <p>Aucun commentaire</p>
         {% endfor %}
-    </div>-->
+    </div>
 
     <hr>
 
-    <!-- Formulaire -->
     {% if user.is_authenticated %}
     <h6 class="fw-bold">Ajouter un commentaire :</h6>
 
-    <form method="post" class="mt-2">
+    <form method="post" action="{% url 'ajouter_commentaire' article.id %}" class="mt-2">
         {% csrf_token %}
         
         <div class="mb-3">
+            <!-- affiches juste le champ contenu donc inutile de faire as_p qui génère un <p> pour un seul champ-->
             {{ form.contenu }}
         </div>
 
         <button class="btn btn-primary">
-            Poster le commentaire →
+            Poster le commentaire
         </button>
     </form>
 

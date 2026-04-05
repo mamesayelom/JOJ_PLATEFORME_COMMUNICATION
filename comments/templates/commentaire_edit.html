@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <!-- Titre -->
+    <h3 class="fw-bold text-center mb-4">
+        Modifier votre commentaire
+    </h3>
+
+    <div class="card shadow p-4">
+
+        <form method="post">
+            {% csrf_token %}
+
+            <!-- Champ contenu -->
+            <div class="mb-3">
+                <label class="form-label fw-semibold">
+                    Contenu du commentaire
+                </label>
+                {{ form.contenu }}
+            </div>
+
+            <!-- Boutons -->
+            <div class="d-flex justify-content-between">
+
+                <!-- Retour -->
+                <a href="{% url 'detail_article' object.article.id %}" 
+                   class="btn btn-secondary">
+                    Annuler
+                </a>
+
+                <!-- Submit -->
+                <button type="submit" class="btn btn-primary">
+                    Enregistrer les modifications
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
