@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>JOJ News</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg shadow-sm">
+        <div class="container">
+
+          
+            <a class="navbar-brand d-flex align-items-center text-white fw-bold" href="">
+            <img src="{% static 'images/logo1.png' %}" alt="logo" width="80" class="me-2">
+            </a>
+
+            <!-- Bouton mobile -->
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Liens -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                <a class="nav-link text-primary" href="{% url 'liste_article' %}">Accueil</a>
+                </li>
+                
+                {% if user.is_staff %}
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="{% url 'ajouter_article' %}">Ajouter un article</a>
+                    </li>
+                {% endif %}
+
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <form method='post' action="{% url 'logout' %}">
+                        {% csrf_token%}
+                        <button class="nav-link text-primary" type="submit">Déconnexion</button>
+                    </form>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                <a class="nav-link text-primary" href="{% url 'login' %}">Connexion</a>
+                </li>
+                {% endif %}
+
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    {% block content%}
+    {% endblock %}
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
