@@ -121,10 +121,15 @@ STATICFILES_DIRS =[
     BASE_DIR/'static'
 ]
 
+#appeler lorsqu'on essaye de modifier ou supprimer un commentaire sans se connecter
 LOGIN_URL = 'login'
+
 LOGIN_REDIRECT_URL='/'
 LOGOUT_REDIRECT_URL='login'
 
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Backend pour afficher les mails dans la console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
