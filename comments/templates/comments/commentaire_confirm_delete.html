@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-5">
+    <h3>Supprimer ce commentaire ?</h3>
+    <p><strong>{{ object.contenu }}</strong></p>
+
+    <form method="post">
+        {% csrf_token %}
+        <a href="{% url 'detail_article' object.article.id %}" class="btn btn-secondary">Annuler</a>
+        <button type="submit" class="btn btn-danger">Supprimer</button>
+    </form>
+</div>
+
+{% endblock %}

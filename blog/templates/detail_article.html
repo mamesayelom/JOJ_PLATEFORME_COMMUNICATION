@@ -40,15 +40,16 @@
 
             <p class="mb-0 mt-2">{{ commentaire.contenu }}</p>
 
-            
+            {% if user.is_authenticated and user == commentaire.user %}
                 <div class="mt-2 d-flex gap-2">
                     <a href="{% url 'commentaire_edit' commentaire.id %}" class="btn btn-sm btn-warning">
                         Modifier
                     </a>
-                     <a href="" class="btn btn-sm btn-danger">
+                     <a href="{% url 'commentaire_delete' commentaire.id %}" class="btn btn-sm btn-danger">
                         Supprimer
                     </a>
                 </div>
+            {% endif %}
            
 
         </div>
