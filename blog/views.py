@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .forms import CustomUserCreationForm,ArticleForm
 from .models import Article
+from comments.forms import CommentaireForm
 
 # Create your views here.
 
@@ -13,8 +14,13 @@ def liste_article(request):
 
 def detail_article(request,id):
     article=get_object_or_404(Article, id=id)
+    commentaires = article.commentaires.all()
+    form = CommentaireForm()
+
     contexte={
-        'article':article
+        'article':article,
+        'commentaires': commentaires,
+        'form': form
     }
     return render(request,'detail_article.html',contexte)
 
