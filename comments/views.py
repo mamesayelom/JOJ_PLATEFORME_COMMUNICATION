@@ -34,7 +34,7 @@ def ajout_commentaire(request, id):
 class CommentaireUpdateView(UserPassesTestMixin, UpdateView):
     #Je veux modifier un objet de type Commentaire donc django sait quoi récupérer (get_object())
     model = Commentaire
-    fields = ['contenu']
+    form_class = CommentaireForm
     template_name = 'commentaire_edit.html'
 
     def test_func(self):
