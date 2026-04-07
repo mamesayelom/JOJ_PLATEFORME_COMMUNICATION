@@ -6,10 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        .navbar-nav .nav-link {
+            transition: color 0.2s ease;
+        }
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link:focus {
+            color: #e42121 !important;
+        }
+        .navbar-nav .nav-link[aria-current="page"] {
+            color: #e42121 !important;
+        }
+    </style>
     <title>JOJ News</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg shadow-sm" style="background: linear-gradient(to left, #e42121, #54f359, white);">
+  
+    <nav class="navbar navbar-expand-lg shadow-sm" >
+      
         <div class="container">
 
           
@@ -28,12 +42,12 @@
             <ul class="navbar-nav ms-auto">
 
                 <li class="nav-item">
-                <a class="nav-link text-dark fw-bold" href="{% url 'liste_article' %}">Accueil</a>
+                <a class="nav-link fw-bold {% if request.resolver_match.url_name == 'liste_article' %}text-danger{% else %}text-dark{% endif %}" href="{% url 'liste_article' %}"{% if request.resolver_match.url_name == 'liste_article' %} aria-current="page"{% endif %}>Accueil</a>
                 </li>
                 
                 {% if user.is_staff %}
                     <li class="nav-item">
-                        <a class="nav-link text-dark fw-bold" href="{% url 'ajouter_article' %}">Ajouter un article</a>
+                        <a class="nav-link fw-bold {% if request.resolver_match.url_name == 'ajouter_article' %}text-danger{% else %}text-dark{% endif %}" href="{% url 'ajouter_article' %}"{% if request.resolver_match.url_name == 'ajouter_article' %} aria-current="page"{% endif %}>Ajouter un article</a>
                     </li>
                 {% endif %}
 
