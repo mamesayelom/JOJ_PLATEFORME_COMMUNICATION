@@ -9,12 +9,13 @@
     <title>JOJ News</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg shadow-sm">
+    <nav class="navbar navbar-expand-lg shadow-sm" style="background: linear-gradient(to left, #e42121, #54f359, white);">
         <div class="container">
 
           
             <a class="navbar-brand d-flex align-items-center text-white fw-bold" href="">
             <img src="{% static 'images/logo1.png' %}" alt="logo" width="80" class="me-2">
+            <h6 style="font-size: 13px; color : red">Joj Dakar 2026</h6>
             </a>
 
             <!-- Bouton mobile -->
@@ -27,12 +28,12 @@
             <ul class="navbar-nav ms-auto">
 
                 <li class="nav-item">
-                <a class="nav-link text-primary" href="{% url 'liste_article' %}">Accueil</a>
+                <a class="nav-link text-dark fw-bold" href="{% url 'liste_article' %}">Accueil</a>
                 </li>
                 
                 {% if user.is_staff %}
                     <li class="nav-item">
-                        <a class="nav-link text-primary" href="{% url 'ajouter_article' %}">Ajouter un article</a>
+                        <a class="nav-link text-dark fw-bold" href="{% url 'ajouter_article' %}">Ajouter un article</a>
                     </li>
                 {% endif %}
 
@@ -40,12 +41,12 @@
                 <li class="nav-item">
                     <form method='post' action="{% url 'logout' %}">
                         {% csrf_token%}
-                        <button class="nav-link text-primary" type="submit">Déconnexion</button>
+                        <button class="nav-link text-white rounded-3 bg-dark fw-bold" type="submit">Déconnexion</button>
                     </form>
                 </li>
                 {% else %}
                 <li class="nav-item">
-                <a class="nav-link text-primary" href="{% url 'login' %}">Connexion</a>
+                <a class="nav-link text-white rounded-3 bg-dark fw-bold" href="{% url 'login' %}">Connexion</a>
                 </li>
                 {% endif %}
 
@@ -67,8 +68,8 @@
 
       <!-- A propos -->
       <div class="col-md-3">
-        <h5 class="fw-bold text-primary" >JOJ News</h5>
-        <p style="font-size: 14px;">
+        <h5 class="fw-bold text-white" >JOJ News</h5>
+        <p style="font-size: 14px; color: #a7a1a1;">
           JOJ News est votre source d'information fiable pour suivre
           l’actualité en temps réel au Sénégal et dans le monde.
         </p>
@@ -76,30 +77,30 @@
 
       <!-- Actualités -->
       <div class="col-md-3">
-        <h5 class="text-primary">Actualités</h5>
+        <h5 class="text-white">Actualités</h5>
         <ul class="list-unstyled">
-          <li style="font-size: 14px;" ><a href="#" class="text-white text-decoration-none">Politique</a></li>
-          <li style="font-size: 14px;" ><a href="#" class="text-white text-decoration-none">Sport</a></li>
-          <li style="font-size: 14px;" ><a href="#" class="text-white text-decoration-none">Culture</a></li>
-          <li style="font-size: 14px;" ><a href="#" class="text-white text-decoration-none">Économie</a></li>
+          <li style="font-size: 14px;" ><a style="color: #a7a1a1;" href="#" class="text-decoration-none">Politique</a></li>
+          <li style="font-size: 14px; " ><a style="color: #a7a1a1;" href="#" class="text-decoration-none">Sport</a></li>
+          <li style="font-size: 14px; " ><a style="color: #a7a1a1;" href="#" class="text-decoration-none">Culture</a></li>
+          <li style="font-size: 14px; " ><a style="color: #a7a1a1;" href="#" class="text-decoration-none">Économie</a></li>
         </ul>
       </div>
 
       <!-- Contact -->
       <div class="col-md-3">
-        <h5 class="text-primary ">Contact</h5>
-        <p style="font-size: 14px;" >Email : contact@jojnews.com</p>
-        <p style="font-size: 14px;" >Téléphone : +221 77 000 00 00</p>
-        <p style="font-size: 14px;" >Dakar, Sénégal</p>
+        <h5 class="text-white ">Contact</h5>
+        <p style="font-size: 14px; color: #a7a1a1;" >Email : contact@jojnews.com</p>
+        <p style="font-size: 14px; color: #a7a1a1;" >Téléphone : +221 77 000 00 00</p>
+        <p style="font-size: 14px; color: #a7a1a1;" >Dakar, Sénégal</p>
       </div>
 
       <!-- Réseaux sociaux -->
       <div class="col-md-3">
-        <h5 class="text-primary">Suivez-nous</h5>
-        <a href="#" class="text-white d-block small-text" style="font-size: 14px;">Facebook</a>
-        <a href="#" class="text-white d-block fs-6" style="font-size: 14px;">Instagram</a>
-        <a href="#" class="text-white d-block" style="font-size: 14px;">Twitter</a>
-        <a href="#" class="text-white d-block" style="font-size: 14px;">YouTube</a>
+        <h5 class="text-white">Suivez-nous</h5>
+        <a href="#" class=" d-block small-text" style="font-size: 14px; color: #a7a1a1;">Facebook</a>
+        <a href="#" class="d-block fs-6" style="font-size: 14px; color: #a7a1a1;">Instagram</a>
+        <a href="#" class=" d-block" style="font-size: 14px; color: #a7a1a1;">Twitter</a>
+        <a href="#" class="d-block" style="font-size: 14px; color: #a7a1a1;">YouTube</a>
       </div>
 
     </div>
