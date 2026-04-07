@@ -1,8 +1,46 @@
 {% extends 'base.html' %}
 {% block content %}
-    <form method='post' enctype="multipart/form-data">
+    <!--<form method='post' enctype="multipart/form-data">
         {% csrf_token %}
         {{form.as_p}}
         <button type="submit">Ajouter</button>
+    </form>-->
+<section class="bg-white py-5">
+    <form method="post" enctype="multipart/form-data"
+      class="p-4 shadow rounded-4 bg-white mx-auto" style="max-width: 700px;">
+    
+        {% csrf_token %}
+
+        <h3 class="text-center mb-4">Ajouter un article</h3>
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Titre</label>
+            {{ form.titre }}
+            {{ form.titre.errors }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Catégorie</label>
+            {{ form.categorie }}
+            {{ form.categorie.errors }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Contenu</label>
+            {{ form.contenu }}
+            {{ form.contenu.errors }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Image</label>
+            {{ form.image }}
+            {{ form.image.errors }}
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">
+            Ajouter
+        </button>
+
     </form>
+</section>
 {% endblock %}  
