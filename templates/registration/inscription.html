@@ -52,12 +52,12 @@
             {{ form.password2.errors }}
         </div>
 
-        <button type="submit" class="btn btn-primary w-100">
+        <button type="submit" class="btn btn-dark w-100">
             S'inscrire
         </button>
 
         <div class="text-center mt-3">
-            <a href="{% url 'login' %}">Déjà un compte ? Se connecter</a>
+            <a style="color: red; text-decoration: none;" href="{% url 'login' %}">Déjà un compte ? Se connecter</a>
         </div>
     </form>
 </section>
